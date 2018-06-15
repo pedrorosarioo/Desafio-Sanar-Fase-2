@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
+import Thumb from './thumb'
 
 
 export default class Acervo extends Component{
-
     render(){
         return(
-            <h1>Acervo</h1>
+            <div>
+                <Thumb />    
+            </div>
         );
     }
 }
