@@ -1,0 +1,19 @@
+@font-face {
+    font-family: fontHeader;
+    src: url('../font/OpenSans-Bold.ttf');
+}
+
+.bgMenu{
+	background-color: rgb(177,14,22);
+	color: white;
+}
+
+.logoMarca{
+	margin-left: 30px;
+}
+
+
+.fa-play{
+	font-size: 250%;
+	margin-right: 20px;
+}

@@ -1,0 +1,32 @@
+.search{
+	display:flex;
+	justify-content: center;
+	margin-top: 20px;
+	margin-bottom: 50px;
+	flex-wrap:wrap;
+}
+
+
+.form-control{
+    width: 60%;
+    height: 40px;
+    margin-right: 30px;
+}
+
+.btnSearch{
+    width: 20%;
+    height: 40px;
+    background-color: rgb(4,6,24);
+    border-color:white;
+    border-radius: 3%;
+    color: white;
+    transition: background-color .4s;
+}
+
+.btnSearch:hover{
+    background-color: rgb(19,29,119);
+}
+
+.btnSearch:focus{
+    outline: none;
+}

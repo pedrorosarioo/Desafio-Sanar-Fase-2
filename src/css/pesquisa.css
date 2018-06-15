@@ -1,0 +1,8 @@
+.barraPesquisa{
+    flex-grow: 6;
+    width: 40%;
+}
+
+.btnPesquisa{
+    flex-grow: 4;
+}
