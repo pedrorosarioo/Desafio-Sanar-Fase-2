@@ -1,0 +1,21 @@
+.borderThumb{
+    margin: 20px 100px 20px 100px;
+    padding: 10px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.scoresThumb{
+    display: flex;
+    align-content: space-between;
+    align-items: flex-start;
+    margin-right: 65%;
+}
+
+.scoresThumb > i{
+    margin: auto 10px auto 30px;
+}
