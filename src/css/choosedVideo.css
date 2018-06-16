@@ -11,11 +11,32 @@
 .titleVideo{
     font-size: 120%;
     margin-top: 10px;
+    flex-grow: 9;
+    margin-right: 20px;
 }
 
 .like{
-    position: relative;
-    top: 8px;
-    left: 39px;
+    border-radius: 5%;
+    background-color: #eb9797;
+    border: none;
+    margin-top: 5px;
+    height: 50%;
+    color: white;
+    transition: background-color 0.4s;
+}
 
+.like:hover{
+    background-color: rgb(202, 34, 34);
+}
+
+.like:focus{
+    outline: none;
+}
+
+.like:visited{
+    background-color: rgb(202, 34, 34);
+}
+
+.fa-heart{
+    margin-right: 10px;
 }

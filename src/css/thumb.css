@@ -1,6 +1,5 @@
 .borderThumb{
     margin: 20px 100px 20px 100px;
-    padding: 10px;
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -13,9 +12,15 @@
     display: flex;
     align-content: space-between;
     align-items: flex-start;
-    margin-right: 65%;
+    margin-right: 90%;
+}
+
+.titleThumb{
+    font-size: 120%;
+    width: 130%;
 }
 
 .scoresThumb > i{
     margin: auto 10px auto 30px;
+    width: 130%;
 }
