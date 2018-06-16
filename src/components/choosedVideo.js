@@ -16,7 +16,7 @@ export default class ChoosedVideo extends Component{
                 </div>
                 <div className='titleLike'>
                     <h4 className='titleVideo'>{this.props.title}</h4>
-                    <button className='like'><i className='fa fa-heart'></i>Gostei!</button>
+                    <button className='like' onClick={this.props.colorChange} style={this.props.colorButton}><i className='fa fa-heart'></i>Gostei!</button>
                 </div>
             </div>
         )
