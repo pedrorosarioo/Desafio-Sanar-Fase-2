@@ -16,10 +16,10 @@
 }
 
 .like{
-    border-radius: 5%;
+    border-radius: 15px;
     background-color: #eb9797;
     border: none;
-    margin-top: 5px;
+    margin-top: 10px;
     height: 50%;
     color: white;
     transition: background-color 0.4s;
@@ -35,8 +35,4 @@
 
 .like:visited{
     background-color: rgb(202, 34, 34);
-}
-
-.fa-heart{
-    margin-right: 10px;
 }
