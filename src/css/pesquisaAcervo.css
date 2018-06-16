@@ -1,15 +1,18 @@
 .search{
-	display:flex;
-	justify-content: center;
-	margin-top: 20px;
-    margin-bottom: 15px;
-    padding-bottom: 0px;
+	display: flex;
+    align-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 110px;
+    margin-top: 20px;
     flex-wrap:wrap;
 }
 
 .searchStuff{
     display:flex;
     flex-direction: column;
+    align-content: space-around;
+    margin-left: 15%;
 }
 
 .form-control{
@@ -20,11 +23,19 @@
 
 .checkBoxes{
     display: flex;
-    align-content: center;
+    align-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    margin: auto auto 30px 85px;
+    margin-left: 110px;
+    margin-bottom: 1%;
+    margin-top: 15px;
 }
+
+.form-control-sm{
+    width: 8%;
+    margin-left: 20px;
+}
+
 
 .likeBox{
     margin: 10px 0px auto 20px;
@@ -45,4 +56,17 @@
 
 .btn:focus{
     outline: none;
+}
+
+.formAddVideo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px;
+    width: 500px;
+}
+
+.btn-success{
+    margin-top: 20px;
+    margin-left: 70%;
 }
