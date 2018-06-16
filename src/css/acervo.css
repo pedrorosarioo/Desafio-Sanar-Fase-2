@@ -1,6 +1,6 @@
 .listaAcervo{
     display:flex;
     flex-wrap: wrap;
-    margin: auto;
+    margin: auto auto auto 50px;
     width: 100%;
 }
