@@ -10,6 +10,9 @@ import './css/header.css'
 import './css/resume.css'
 import './css/pesquisa.css'
 import './css/pesquisaAcervo.css'
+import './css/acervo.css'
+import './css/choosedVideo.css'
+
 
 
 
