@@ -12,7 +12,7 @@ export default class ChoosedVideo extends Component{
         return(
             <div className='videoEscolhido'>
                 <div>
-                    <ResponsiveEmbed src={srcVideo} allowfullscreen="allowfullscreen" />
+                   <ResponsiveEmbed src={srcVideo} allowfullscreen="allowfullscreen" />
                 </div>
                 <div className='titleLike'>
                     <h4 className='titleVideo'>{this.props.title}</h4>
