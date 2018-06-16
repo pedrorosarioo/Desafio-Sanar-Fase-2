@@ -23,29 +23,77 @@ export default class App extends Component{
   constructor(props){
     super(props)
     this.troca=this.troca.bind(this)
-    this.pesquisar = this.pesquisar.bind(this);
-    this.state = {dado: '', acervo:[], resposta:[], haveData:false}
+    this.pesquisar = this.pesquisar.bind(this)
+    this.showModal = this.showModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
+    this.addVideo = this.addVideo.bind(this)
+    this.state = {dado: '', acervo:[], resposta:[], modal: false}
   }
 
-  troca(e){ //copia o que está no formulario para 'dados', permitindo a comunicação entre os componenets
-    this.setState({...this.state, dado: e.target.value})
+  troca(e){ //copia o que está no formulario para os states, permitindo a comunicação entre os components
+    const target = e.target;
+    const value = target.type == 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    })
   }
 
   pesquisar(){ 
-      axios.get(`${URL}`)
-        .then(resp => {
-          this.setState({acervo: resp.data.videos.filter(item => item.title.includes(this.state.dado))})
-          if(this.state.dado=='') this.setState({acervo: resp.data.videos}) 
-          }
-        )
+    axios.get(`${URL}`)
+    .then(resp => {
+      this.setState({acervo: resp.data.videos.filter(item => item.title.includes(this.state.dado))})
+      if(this.state.dado=='') this.setState({acervo: resp.data.videos})
+      if(this.state.option=='Views') this.setState({...this.state, acervo: (this.state.acervo.sort((a,b)=>b.views-a.views))})
+      if(this.state.option=='Likes') this.setState({...this.state, acervo: (this.state.acervo.sort((a,b)=>b.likes-a.likes))})  
+      }
+    )
   }
+
+  colorChange(){
+    const likes = this.props.likes
+    if (this.state.nLikes==likes){
+        this.setState({...this.state, nLikes: likes+1, colorHeart: 'red', videoLiked: true, newColor: {backgroundColor: 'rgb(202, 34, 34)'}})
+    }else{
+        this.setState({...this.state, nLikes: likes, colorHeart: 'black', videoLiked: false, newColor: {backgroundColor: '#eb9797'}})
+    }
+}
+
+  addVideo(){ //not possible
+    const id=this.state.idNewVideo
+    const title = this.state.titleNewVideo
+    const likes = 0
+    const views = 0
+      axios.post(`${URL}`, {id, title, views, likes})
+        .then(resp =>{
+            this.pesquisar()
+        })
+  }
+
+  showModal(){
+    this.setState({...this.state, modal: true})
+  }
+
+  closeModal(){
+    this.setState({...this.state, modal: false})
+  }
+
 
       render(){
         return(
           <div>
             <Header />
-            <PesquisaAcervo troca={this.troca} pesquisar={this.pesquisar}/>
-            <Acervo acervo={this.state.acervo} decision={this.state.haveData} pesquisado={this.state.dado}/>
+            <PesquisaAcervo 
+              troca={this.troca} 
+              pesquisar={this.pesquisar} 
+              open={this.state.modal} 
+              close={this.closeModal} 
+              showModal={this.showModal}
+              addVideo={this.addVideo}
+              checkedLike={this.checkedLike}
+              checkedView={this.checkedView}
+            />
+            <Acervo acervo={this.state.acervo}/>
           </div>
         );
       }
