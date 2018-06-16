@@ -13,9 +13,10 @@ export default class Acervo extends Component{
         return(
         <div>
             <div style={{borderTop: '1px solid rgb(206,212,218)', margin: '0px 30px'}}></div>
+            <h1>Ultimos videos:</h1>
                 <div className='listaAcervo'>
                     {this.props.acervo.map(video =>
-                        <Thumb imgvideo={video.id} title={video.title} likes={video.likes} views={video.views}/>
+                        <Thumb imgvideo={video.id} title={video.title} likes={video.likes} views={video.views} liked={false}/>
                     )} 
                 </div>
             </div>
