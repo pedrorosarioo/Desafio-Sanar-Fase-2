@@ -2,10 +2,15 @@
 	display:flex;
 	justify-content: center;
 	margin-top: 20px;
-	margin-bottom: 50px;
-	flex-wrap:wrap;
+    margin-bottom: 15px;
+    padding-bottom: 0px;
+    flex-wrap:wrap;
 }
 
+.searchStuff{
+    display:flex;
+    flex-direction: column;
+}
 
 .form-control{
     width: 60%;
@@ -13,20 +18,31 @@
     margin-right: 30px;
 }
 
-.btnSearch{
-    width: 20%;
-    height: 40px;
-    background-color: rgb(4,6,24);
-    border-color:white;
-    border-radius: 3%;
-    color: white;
-    transition: background-color .4s;
+.checkBoxes{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto auto 30px 85px;
 }
 
-.btnSearch:hover{
-    background-color: rgb(19,29,119);
+.likeBox{
+    margin: 10px 0px auto 20px;
 }
 
-.btnSearch:focus{
+.viewBox{
+    margin: 10px 0px auto 10px;
+}
+
+.checkBoxes h4{
+    margin-top: 3px;
+}
+
+.btn{
+    margin-right: 20px;
+    width: 150px;
+}
+
+.btn:focus{
     outline: none;
 }
