@@ -12,15 +12,44 @@
     display: flex;
     align-content: space-between;
     align-items: flex-start;
-    margin-right: 90%;
+    margin-right: 85%;
 }
 
 .titleThumb{
     font-size: 120%;
     width: 130%;
+    transition: color .6s;
 }
 
+
 .scoresThumb > i{
-    margin: auto 10px auto 30px;
+    margin: auto 5px auto 30px;
     width: 130%;
+}
+
+.inv-button{
+    background-color: white;
+    border: none;
+    width: 80px;
+}
+
+.inv-button:focus{
+    outline: none;
+}
+
+.inv-button:hover{
+    cursor: pointer;
+}
+
+.imgThumb{
+    border-radius: 15px;
+}
+
+.titleThumb:hover, .imgThumb:hover{
+    cursor: pointer;
+    color: rgba(47, 23, 182, 0.705);
+}
+
+.fa-heart, .fa-eye{
+    margin-right: 5px;
 }
