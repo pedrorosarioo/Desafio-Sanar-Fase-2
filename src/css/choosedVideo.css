@@ -1,0 +1,21 @@
+.videoEscolhido{
+    display: flex;
+    flex-direction: column;
+}
+
+.titleLike{
+    display: flex;
+    text-align: center;
+}
+
+.titleVideo{
+    font-size: 120%;
+    margin-top: 10px;
+}
+
+.like{
+    position: relative;
+    top: 8px;
+    left: 39px;
+
+}
