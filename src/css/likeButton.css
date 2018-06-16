@@ -1,0 +1,11 @@
+.changeButtons .btn{
+    width: 120px;
+    height: 20%;
+    border-radius: 15px;
+    border: none;
+    margin-top: 20px;
+}
+
+.changeButtons{
+    margin-left: 10px;
+}
