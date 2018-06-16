@@ -13,6 +13,7 @@ import './css/pesquisa.css'
 import './css/pesquisaAcervo.css'
 import './css/acervo.css'
 import './css/choosedVideo.css'
+import './css/likeButton.css'
 
 
 
@@ -28,6 +29,7 @@ export default class App extends Component{
     this.closeModal = this.closeModal.bind(this)
     this.addVideo = this.addVideo.bind(this)
     this.state = {dado: '', acervo:[], resposta:[], modal: false}
+    this.pesquisar()
   }
 
   troca(e){ //copia o que está no formulario para os states, permitindo a comunicação entre os components
@@ -49,15 +51,6 @@ export default class App extends Component{
       }
     )
   }
-
-  colorChange(){
-    const likes = this.props.likes
-    if (this.state.nLikes==likes){
-        this.setState({...this.state, nLikes: likes+1, colorHeart: 'red', videoLiked: true, newColor: {backgroundColor: 'rgb(202, 34, 34)'}})
-    }else{
-        this.setState({...this.state, nLikes: likes, colorHeart: 'black', videoLiked: false, newColor: {backgroundColor: '#eb9797'}})
-    }
-}
 
   addVideo(){ //not possible
     const id=this.state.idNewVideo
