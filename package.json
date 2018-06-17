@@ -3,16 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^1.2.1",
-    "@material-ui/icons": "^1.1.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.1",
-    "downshift": "^1.31.16",
     "font-awesome": "^4.7.0",
-    "materialize-css": "^0.100.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-materialize": "^2.2.1",
     "react-responsive-embed": "^2.1.0",
     "react-responsive-modal": "^3.0.3",
     "react-scripts": "1.1.4"
