@@ -29,7 +29,7 @@ export default class App extends Component{
     this.closeModal = this.closeModal.bind(this)
     this.addVideo = this.addVideo.bind(this)
     this.state = {dado: '', acervo:[], resposta:[], modal: false}
-    this.pesquisar()
+    this.consomeAPI()
   }
 
   troca(e){ //copia o que está no formulario para os states, permitindo a comunicação entre os components
@@ -41,15 +41,22 @@ export default class App extends Component{
     })
   }
 
-  pesquisar(){ 
+  consomeAPI(){
     axios.get(`${URL}`)
     .then(resp => {
-      this.setState({acervo: resp.data.videos.filter(item => item.title.includes(this.state.dado))})
-      if(this.state.dado=='') this.setState({acervo: resp.data.videos})
-      if(this.state.option=='Views') this.setState({...this.state, acervo: (this.state.acervo.sort((a,b)=>b.views-a.views))})
-      if(this.state.option=='Likes') this.setState({...this.state, acervo: (this.state.acervo.sort((a,b)=>b.likes-a.likes))})  
+      this.setState({acervo: resp.data.videos})
+      this.state.acervo.forEach(item=>item.liked=false)
+      this.pesquisar()
       }
     )
+  }
+
+  pesquisar(){ 
+    this.setState({resposta: this.state.acervo.slice()})
+    this.state.resposta = this.state.acervo.slice()
+    if (this.state.option==='Likes') this.setState({resposta: this.state.resposta.sort((a,b)=>b.likes-a.likes)})
+    if (this.state.option==='Views') this.setState({resposta: this.state.resposta.sort((a,b)=>b.views-a.views)})
+    if (this.state.dado!='') this.setState({resposta: this.state.resposta.filter(item=>item.title.toLowerCase().includes(this.state.dado.toLowerCase()))})
   }
 
   addVideo(){ //not possible
@@ -57,10 +64,8 @@ export default class App extends Component{
     const title = this.state.titleNewVideo
     const likes = 0
     const views = 0
-      axios.post(`${URL}`, {id, title, views, likes})
-        .then(resp =>{
-            this.pesquisar()
-        })
+    this.state.acervo.push({id,title,likes,views,liked:false})
+    this.pesquisar()
   }
 
   showModal(){
@@ -86,7 +91,7 @@ export default class App extends Component{
               checkedLike={this.checkedLike}
               checkedView={this.checkedView}
             />
-            <Acervo acervo={this.state.acervo}/>
+            <Acervo acervo={this.state.resposta}/>
           </div>
         );
       }
