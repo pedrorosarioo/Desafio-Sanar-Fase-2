@@ -1,5 +1,5 @@
 
-# Para executar é o projeto (necessário NPM)
+# Para executar o projeto (necessário NPM)
 
 ## 1. Clonar o repositório:  
   
