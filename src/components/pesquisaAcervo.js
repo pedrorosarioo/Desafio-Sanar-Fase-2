@@ -9,7 +9,7 @@ export default props => (
         <button className="btn btn-primary" onClick={props.pesquisar}><i className="fa fa-search"></i> Pesquisar</button>
         <button className="btn btn-secundary" onClick={props.showModal}><i className="fa fa-plus"></i> Add</button>
     </div>
-        <Modal open={props.open} onClose={props.close}>
+        <Modal open={props.open} onClose={props.close} center>
             <div className='formAddVideo'>
                 <input className='form-control' name="idNewVideo" onChange={props.troca} type="text" placeholder="   Digite o ID do vídeo"/>
                 <input className='form-control' name="titleNewVideo" onChange={props.troca} type="text" placeholder="   Digite o título do vídeo"/>
