@@ -24,10 +24,13 @@ export default class App extends Component{
   constructor(props){
     super(props)
     this.troca=this.troca.bind(this)
+    this.updateThumb=this.updateThumb.bind(this)
     this.pesquisar = this.pesquisar.bind(this)
     this.showModal = this.showModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
     this.addVideo = this.addVideo.bind(this)
+    this.getLike = this.getLike.bind(this)
+    this.getViews = this.getViews.bind(this)
     this.state = {dado: '', acervo:[], resposta:[], modal: false}
     this.consomeAPI()
   }
@@ -51,6 +54,19 @@ export default class App extends Component{
     )
   }
 
+  getLike(video){
+    video.liked = video.liked ? false:true
+    video.likes+= video.liked ? 1:-1
+    this.setState({...this.state.acervo.find(item=>item.id===video.id), liked:video.liked, likes:video.likes})
+    console.log(video)
+  }
+
+  getViews(video){
+    video.views+=1
+    this.setState({...this.state.acervo.find(item=>item.id===video.id), views:video.views})
+    console.log(video)
+  }
+
   pesquisar(){ 
     this.setState({resposta: this.state.acervo.slice()})
     this.state.resposta = this.state.acervo.slice()
@@ -66,6 +82,14 @@ export default class App extends Component{
     const views = 0
     this.state.acervo.push({id,title,likes,views,liked:false})
     this.pesquisar()
+  }
+
+  updateThumb(e){
+    this.state.acervo.forEach(item=>{
+      if (item.title===e.target.value){
+        item.liked=true;
+      }
+    })
   }
 
   showModal(){
@@ -91,7 +115,7 @@ export default class App extends Component{
               checkedLike={this.checkedLike}
               checkedView={this.checkedView}
             />
-            <Acervo acervo={this.state.resposta}/>
+            <Acervo acervo={this.state.resposta} getLike={this.getLike} getViews={this.getViews}/>
           </div>
         );
       }

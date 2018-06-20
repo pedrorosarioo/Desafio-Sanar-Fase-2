@@ -8,15 +8,16 @@ export default class ChoosedVideo extends Component{
     }
 
     render(){
-        const srcVideo = "https://www.youtube.com/embed/".concat(this.props.id)
+        const srcVideo = "https://www.youtube.com/embed/".concat(this.props.video.id)
         return(
             <div className='videoEscolhido'>
                 <div>
-                   <ResponsiveEmbed src={srcVideo} allowfullscreen="allowfullscreen" />
+                   <ResponsiveEmbed src={srcVideo} allowFullScreen="allowFullScreen" />
                 </div>
                 <div className='titleLike'>
-                    <h4 className='titleVideo'>{this.props.title}</h4>
-                    <button className='like' value={this.props.likes} onClick={this.props.colorChange} style={this.props.colorButton}><i className='fa fa-heart'></i>Gostei!</button>
+                    <h4 className='titleVideo'>{this.props.video.title}</h4>
+                    <button className='like' value={this.props.video.likes} onClick={()=>this.props.getLike(this.props.video)} 
+                    style={this.props.video.liked ? {backgroundColor:'red'}:{color:'white'}}><i className='fa fa-heart'></i>Gostei!</button>
                 </div>
             </div>
         )
